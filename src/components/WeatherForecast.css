@@ -1,0 +1,32 @@
+.card {
+  border-radius: 18px;
+  background: rgb(224, 224, 224);
+  box-shadow: 5px 5px 15px rgba(138, 138, 138, 0.9);
+  text-align: center;
+  margin: 5px;
+  height: auto;
+  width: 15vw;
+}
+
+.card-image {
+  margin: auto;
+  margin: 20px 0 20px 0;
+}
+
+.seperator {
+  border: none;
+  border-top: 4px dotted rgba(92, 92, 92, 0.3);
+  color: #fff;
+  background-color: rgb(224, 224, 224);
+  height: 1px;
+  width: 80%;
+}
+
+.header-description {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.description {
+  padding: 10px;
+}
