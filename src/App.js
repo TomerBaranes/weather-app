@@ -35,8 +35,11 @@ function App() {
 
     fetch(`${api.base}forecast?q=${query}&units=${unit}&APPID=${api.key}`)
       .then((response) => {
-        if (!response.ok) setIsLoading(false);
-        if (!response.ok) throw new Error(response.statusText);
+        if (!response.ok) {
+          setQuery("");
+          setIsLoading(false);
+          throw new Error(response.statusText);
+        }
         return response.json();
       })
       .then((data) => {
@@ -68,7 +71,7 @@ function App() {
           <div>
             {weatherData ? (
               <div>
-                <h1>
+                <h1 className="city-name">
                   {weatherData.city.name}, {weatherData.city.country}
                 </h1>
                 <div className="forecast">
