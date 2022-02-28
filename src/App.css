@@ -19,10 +19,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 2%;
-}
-
-.form-input {
+  margin: 5% 2%;
 }
 
 .form-button {
@@ -48,4 +45,14 @@
 .form-button:active {
   position: relative;
   top: 1px;
+}
+
+.filler-text {
+  font-size: 1.5em;
+}
+
+@media screen and (max-width: 1000px) {
+  .forecast {
+    flex-wrap: wrap;
+  }
 }
