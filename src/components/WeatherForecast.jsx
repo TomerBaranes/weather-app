@@ -11,6 +11,9 @@ const WeatherForecast = ({ data, num, units }) => {
     );
     return (
       <div className="card">
+        <div className="day-description">
+          <span>{day}</span>
+        </div>
         <img
           className="card-image"
           src={`http://openweathermap.org/img/wn/${data.list[num].weather[0].icon}@2x.png`}
@@ -19,12 +22,12 @@ const WeatherForecast = ({ data, num, units }) => {
         <div className="title-degrees">
           <p>
             {data.list[num].main.temp}
-            {units === "metric" ? "°C" : "°"}
+            {units === "Metric" ? "°C" : "°"}
           </p>
           <hr className="seperator" />
           <div className="header-description">Date</div>
           <div className="description">
-            {day}, {date}, {month}, {year}
+            {date}, {month}, {year}
           </div>
           <div className="header-description">General</div>
           <div className="description">

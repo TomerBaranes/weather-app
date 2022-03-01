@@ -1,29 +1,40 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import WeatherForecast from "./components/WeatherForecast";
 import LoadingSpinner from "./components/LoadingSpinner";
+import SwitchUnit from "./components/Switch";
+
+import Swal from "sweetalert2";
 
 import "./App.css";
-import Swal from "sweetalert2";
 
 const api = {
   key: process.env.REACT_APP_API_KEY,
   base: "https://api.openweathermap.org/data/2.5/",
 };
 
-const unit = "metric";
-
 function App() {
   const [query, setQuery] = useState("");
   const [weatherData, setWeatherData] = useState();
   const [error, setError] = useState("Look up a city/country");
   const [isLoading, setIsLoading] = useState(false);
+  const [unit, setUnit] = useState("Metric");
 
   const handleChange = (e) => {
     setQuery(e.target.value);
   };
 
-  const handleSubmit = async (e) => {
+  const handleUnit = () => {
+    if (unit === "Metric") {
+      setUnit("Imperial");
+    }
+
+    if (unit === "Imperial") {
+      setUnit("Metric");
+    }
+  };
+
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     if (query === "") {
@@ -64,6 +75,7 @@ function App() {
             Search
           </button>
         </form>
+        <SwitchUnit clickThis={handleUnit} unit={unit} />
 
         {isLoading ? (
           <LoadingSpinner />
