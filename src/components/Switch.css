@@ -2,10 +2,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0 2%;
 }
 
 .unit {
-  margin-left: 1%;
+  margin-left: 25px;
+  width: 50px;
 }
 
 .switch {
@@ -65,4 +67,10 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+@media screen and (max-width: 800px) {
+  .unit-selection {
+    margin: 10px;
+  }
 }

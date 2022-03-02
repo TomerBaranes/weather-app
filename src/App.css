@@ -16,7 +16,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 5% 2% 2% 2%;
+  margin: 0 2% 2% 2%;
 }
 
 .form-button {
@@ -46,6 +46,7 @@
 
 .filler-text {
   font-size: 1.5em;
+  margin-top: 10%;
 }
 
 @media screen and (max-width: 1000px) {

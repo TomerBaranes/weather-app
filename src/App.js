@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import WeatherForecast from "./components/WeatherForecast";
 import LoadingSpinner from "./components/LoadingSpinner";
 import SwitchUnit from "./components/Switch";
+import Header from "./components/Header";
 
 import Swal from "sweetalert2";
 
@@ -63,43 +64,42 @@ function App() {
 
   return (
     <div className="App">
-      <div>
-        <form onSubmit={handleSubmit} className="form-bar">
-          <input
-            type="text"
-            onChange={handleChange}
-            value={query}
-            className="form-input"
-          />
-          <button type="submit" className="form-button">
-            Search
-          </button>
-        </form>
-        <SwitchUnit clickThis={handleUnit} unit={unit} />
+      <Header />
+      <form onSubmit={handleSubmit} className="form-bar">
+        <input
+          type="text"
+          onChange={handleChange}
+          value={query}
+          className="form-input"
+        />
+        <button type="submit" className="form-button">
+          Search
+        </button>
+      </form>
+      <SwitchUnit clickThis={handleUnit} unit={unit} />
 
-        {isLoading ? (
-          <LoadingSpinner />
-        ) : (
-          <div>
-            {weatherData ? (
-              <div>
-                <h1 className="city-name">
-                  {weatherData.city.name}, {weatherData.city.country}
-                </h1>
-                <div className="forecast">
-                  <WeatherForecast data={weatherData} num="0" units={unit} />
-                  <WeatherForecast data={weatherData} num="8" units={unit} />
-                  <WeatherForecast data={weatherData} num="16" units={unit} />
-                  <WeatherForecast data={weatherData} num="24" units={unit} />
-                  <WeatherForecast data={weatherData} num="30" units={unit} />
-                </div>
+      {isLoading ? (
+        <LoadingSpinner />
+      ) : (
+        <div>
+          {weatherData ? (
+            <div>
+              <h1 className="city-name">
+                {weatherData.city.name}, {weatherData.city.country}
+              </h1>
+              <div className="forecast">
+                <WeatherForecast data={weatherData} num="0" units={unit} />
+                <WeatherForecast data={weatherData} num="8" units={unit} />
+                <WeatherForecast data={weatherData} num="16" units={unit} />
+                <WeatherForecast data={weatherData} num="24" units={unit} />
+                <WeatherForecast data={weatherData} num="30" units={unit} />
               </div>
-            ) : (
-              <p className="filler-text">{error}</p>
-            )}
-          </div>
-        )}
-      </div>
+            </div>
+          ) : (
+            <p className="filler-text">{error}</p>
+          )}
+        </div>
+      )}
     </div>
   );
 }
